@@ -7,7 +7,7 @@ import {
     signInAuthUserWithEmailAndPassword,
     singnInWithGooglePopup, 
     createUserDocumentFromAuth, 
-    singnInWithGoogleRedirect} from '../../utils/firebase/firebase.utils'
+    singnInWithGoogleRedirect } from '../../utils/firebase/firebase.utils'
 
 
 const SignInForm = ()=>{

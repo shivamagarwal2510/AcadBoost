@@ -1,7 +1,12 @@
-
-import { async } from "@firebase/util";
 import { initializeApp } from "firebase/app";
-import { getAuth, signInWithPopup, signInWithRedirect, GoogleAuthProvider, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut} from 'firebase/auth'
+import { 
+  getAuth, 
+  signInWithPopup, 
+  signInWithRedirect, 
+  GoogleAuthProvider, 
+  createUserWithEmailAndPassword, 
+  signInWithEmailAndPassword, 
+  signOut} from 'firebase/auth'
 import {
   getFirestore,
   doc,
