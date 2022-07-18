@@ -1,8 +1,9 @@
 import { useState, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { createUserDocumentFromAuth, createAuthUserWithEmailAndPassword } from "../../utils/firebase/firebase.utils";
 import { UserContext } from "../../contexts/user.context";
 const SignUpForm = ()=>{
+    const navigate = useNavigate();
     const {setCurrentUser} = useContext(UserContext);
     const defaultFormFields = {
         displayName : "",
@@ -33,6 +34,7 @@ const SignUpForm = ()=>{
             const UserDocRef = createUserDocumentFromAuth(response.user, {displayName});
             
             setCurrentUser(response.user);
+            setTimeout(() => navigate("/"), 1000);
             resetForm();
         } catch (error) {
             console.log("caught an error while user creation.", error);

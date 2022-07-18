@@ -1,5 +1,5 @@
 import { useState, useContext, useEffect,  } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../../contexts/user.context";
 import { getRedirectResult } from "firebase/auth";
 import {
@@ -7,10 +7,12 @@ import {
     signInAuthUserWithEmailAndPassword,
     singnInWithGooglePopup, 
     createUserDocumentFromAuth, 
-    singnInWithGoogleRedirect } from '../../utils/firebase/firebase.utils'
+    singnInWithGoogleRedirect,
+ } from '../../utils/firebase/firebase.utils'
 
 
 const SignInForm = ()=>{
+    const navigate = useNavigate();
     const {setCurrentUser} = useContext(UserContext);
     useEffect(()=>async ()=>{
         const response = await getRedirectResult(auth);
@@ -19,6 +21,7 @@ const SignInForm = ()=>{
         if(response){
             const UserDocRef = createUserDocumentFromAuth(response.user);
             setCurrentUser(response.user);
+            setTimeout(() => navigate("/"), 1000);
         }    
     }, []);
     const logGoogleUser = async ()=>{
@@ -28,6 +31,7 @@ const SignInForm = ()=>{
        
         const UserDocRef = createUserDocumentFromAuth(user);
         setCurrentUser(user);
+        setTimeout(() => navigate("/"), 1000);
     }
     const defaultFormFields = {
         email : "",
@@ -50,7 +54,7 @@ const SignInForm = ()=>{
         try {
             const response  = await signInAuthUserWithEmailAndPassword(email, password);
             setCurrentUser(response.user);
-
+            setTimeout(() => navigate("/"),1000);
             resetForm();
         } catch (error) {
             console.log("caught an error while user creation.", error);
@@ -74,7 +78,9 @@ const SignInForm = ()=>{
             
             <hr />
             <p className="text-center my-2">or</p>
-            <button onClick={logGoogleUser} className="bg-blue-500 hover:bg-blue-400 text-white rounded block m-auto my-3 p-2 w-80">Sign In with Google PopUp</button>
+            <button onClick={
+                logGoogleUser 
+            } className="bg-blue-500 hover:bg-blue-400 text-white rounded block m-auto my-3 p-2 w-80">Sign In with Google PopUp</button>
             <button onClick={singnInWithGoogleRedirect} className="bg-red-500 hover:bg-red-400 text-white rounded block m-auto my-3 p-2 w-80">Sign In with Google Redirect</button>
             
         </div>

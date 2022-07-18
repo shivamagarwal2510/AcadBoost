@@ -12,7 +12,9 @@ const Card2= ({playlistItem, currentVideo, currentVideoId, setCurrentVideoId, se
         <button onClick={handleCurrentVideo} >
             <div className="card border-2 rounded shadow-xl w-56 m-2 h-[250px] hover:shadow-slate-50 relative" >
                 <img src = {`${playlistItem.snippet.thumbnails.medium.url}`} alt="image"  />
-                <p className="p-3">{`${playlistItem.snippet.title}`}</p>
+                <div className="flex">
+                <input className="ml-1" type="checkbox" checked/>
+                <p className="p-2">{`${playlistItem.snippet.title}`}</p></div>
             </div>
        </button>
         </>

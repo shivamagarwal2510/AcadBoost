@@ -8,6 +8,7 @@ import './App.css';
 import SignIn from './routes/Authentication/sign-in.component';
 import SignUp from './routes/Authentication/sign-up.component';
 import VideoPlayer from './Components/VideoPlayer/VideoPlayer.component';
+import MyCourses from './Components/MyCourses/MyCourses.component';
 function App() {
   return (
     <div className="App">
@@ -20,6 +21,8 @@ function App() {
           <Route path="sign-in" element={<SignIn/>}/>
           <Route path="sign-up" element={<SignUp/>}/>
           <Route path="video-player" element={<VideoPlayer/>}/>
+          <Route path="my-courses" element={<MyCourses/>}/>
+          
         </Route>
       </Routes>
     </div>

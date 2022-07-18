@@ -17,9 +17,13 @@
                 <div className="cards flex flex-wrap m-auto w-[95vw]">
                 {
                     playlists.map(playlist=>{
-                        
+                        const course ={
+                            id:playlist.id,
+                            title:playlist.snippet.title,
+                            thumbnail:playlist.snippet.thumbnails.medium.url
+                        }
                         return(
-                            <Card playlist={playlist}/>
+                            <Card playlist={course}/>
                         )
                     })
                 }

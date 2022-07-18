@@ -26,13 +26,10 @@ const Navbar = () => {
             
             <Link to="/courses">Courses</Link>
           </li>
+          
           <li className="hover:underline underline-offset-8 hover:font-bold">
             
-            <Link to="/programs">Programs</Link>
-          </li>
-          <li className="hover:underline underline-offset-8 hover:font-bold">
-            
-            <Link to="/teachers">Teachers</Link>
+            <Link to="/my-courses">My Courses</Link>
           </li>
         </ul>
         <ul className="flex items-center">
@@ -42,7 +39,8 @@ const Navbar = () => {
               currentUser?
                 (<Link to="/" onClick={signOutHandler} className="mx-5">
                 SIGN OUT
-              </Link>):
+              </Link>
+                ):
                 (<Link to="/sign-in" className="mx-5">
               SIGN IN
             </Link>)

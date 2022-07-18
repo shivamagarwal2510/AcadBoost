@@ -3,12 +3,17 @@ import getPlaylistItems from '../../apis/getVideos';
 import { useState, useEffect } from 'react';
 import CardList2 from '../CardList2/CardList2.component';
 import ReactPlayer from 'react-player';
+import { PlayedContext } from '../../contexts/played.context';
+import { useContext } from 'react';
 
 const VideoPlayer = ()=>{
+    const {played, setPlayed} = useContext(PlayedContext);
+
     const [playlistItems, setPlaylistItems] = useState([]);
     const [videoIds, setVideoIds] = useState([]);
     const [currentVideoId, setCurrentVideoId] = useState({currentVideoId:""});
     const [currentVideo, setCurrentVideo] = useState();
+    
     const location = useLocation();
     const{playlistID} = location.state;
    
@@ -22,12 +27,12 @@ const VideoPlayer = ()=>{
 
             }); 
             setVideoIds(videoIds);
-            setCurrentVideoId({currentVideoId:videoIds[0]});
+            setCurrentVideoId({currentVideoId:videoIds[0], index:0});
             setCurrentVideo(playlistItemsRes[0]);
         })
     },[])
    
-    
+    console.log(played)
     const url = `https://www.youtube.com/watch?v=${currentVideoId.currentVideoId}`;
     const handleVideoEnded = ()=>{
         var i=currentVideoId.index;
@@ -57,6 +62,9 @@ const VideoPlayer = ()=>{
                 width="auto%"
                 height={700}
                 onEnded={handleVideoEnded}
+                onProgress={(progress) => {
+                    setPlayed(progress.playedSeconds);
+                  }}
                 />
                 <strong>Description</strong>
                 <p>

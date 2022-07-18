@@ -3,8 +3,9 @@ import ReactDOM from 'react-dom/client';
 import {BrowserRouter} from 'react-router-dom';
 
 import reportWebVitals from './reportWebVitals';
-
+import { DeleteProvider } from './contexts/delete.context';
 import { UserProvider } from './contexts/user.context';
+import { PlayedProvider } from './contexts/played.context';
 import './index.css';
 import App from './App';
 
@@ -14,7 +15,11 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
     <UserProvider>
+    <DeleteProvider> 
+    <PlayedProvider>
     <App />
+    </PlayedProvider>
+    </DeleteProvider>
     </UserProvider>
     </BrowserRouter>
   </React.StrictMode>
