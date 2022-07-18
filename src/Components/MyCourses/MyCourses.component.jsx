@@ -32,7 +32,7 @@ console.log(myCourses, "useState")
           currentUser?
           ((myCourses!==[])?
           (<CardList3 myCourses={myCourses}/>):(
-            <strong>Add courses to see here</strong>
+           <strong>Add courses to see here</strong>
           )
           )
           :(<strong> Please Login to see your courses.</strong>)

@@ -28,8 +28,8 @@ const Navbar = () => {
           </li>
           
           <li className="hover:underline underline-offset-8 hover:font-bold">
-            
             <Link to="/my-courses">My Courses</Link>
+            
           </li>
         </ul>
         <ul className="flex items-center">
