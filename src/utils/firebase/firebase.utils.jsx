@@ -155,7 +155,7 @@ export const deleteCourse = async (userAuth, id) =>{
     alert("Please sign In to delete this course to my courses");
     return;
   }
-  console.log("deleteCourse trigerred")
+  console.log("deleteCourse trigerred") 
   const userDocRef = doc(db, 'users', userAuth.uid);
   const userSnapshot = await getDoc(userDocRef);
   const myCourses = await userSnapshot.data().myCourses;

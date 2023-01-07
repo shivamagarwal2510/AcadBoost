@@ -9,7 +9,7 @@ import { DeleteContext } from "../../contexts/delete.context";
 const MyCourses =  ()=>{
     const [myCourses, setMyCourses] = useState([]);
     const { currentUser } = useContext(UserContext);
-    const { deletePressed } = useContext(DeleteContext);
+    const { deletePressed } = useContext(DeleteContext); 
 useEffect(()=>{
    if(currentUser){
         data(currentUser).then((mycourses)=>{

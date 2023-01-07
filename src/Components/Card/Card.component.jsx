@@ -15,13 +15,15 @@ const Card= ({playlist})=>{
         <>
        
             <div className="card border-2 rounded shadow-xl w-56 m-2 h-[250px] hover:shadow-slate-50 relative" >
-                <img src = {`${thumbnail}`} alt="image"  />
-                <p className="p-3">{`${title}`}</p>
+               
+                <img src = {`${thumbnail}`} alt="house"  />
+                
+                <p className="p-3">{`${title} `}</p>
                 
                 <div className="mb-2 absolute bottom-2 left-12">
                 <Link to="/video-player" state={{ 
                     playlistID:`${id}`}}><PlayCircleOutlined/></Link>
-                   
+                    
                 </div>
                 
                 <div className="mb-2 absolute bottom-2 right-12">

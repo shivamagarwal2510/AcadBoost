@@ -4,7 +4,7 @@
     const CardList = ({playlists})=>{
         
         return(
-            <>
+            <> 
             
             <div className="cardList flex flex-col flex-wrap ">
             {
